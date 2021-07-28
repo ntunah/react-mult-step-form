@@ -25,7 +25,7 @@ const SecondStep = () => {
                 message: 'Email is not valid'
               }
             })}
-            className={`${error.user_email ? 'input-error' : ''}`}
+            className={`${errors.user_email ? 'input-error' : ''}`}
           />
           {errors.user_email && (
             <p className="errorMsg">{errors.user_email.message}</p>
@@ -53,7 +53,7 @@ const SecondStep = () => {
           )}
         </Form.Group>
         <Button variant="primary" type="submit">
-          Next{' '}
+          Next
         </Button>
       </div>
     </Form>
