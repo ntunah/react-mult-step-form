@@ -27,4 +27,6 @@
   "devDependencies": {
     "react-scripts": "latest"
   }
+  ,
+  "proxy": "http://localhost:3000"
 }
