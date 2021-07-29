@@ -3,8 +3,11 @@ import Progress from './Progress';
 import { motion } from 'framer-motion';
 
 const Header = () => (
-  <motion.div initial={{ y: '-100vw' }} animate={{ y: 0 }}>
-    <h1>Multi Step Registration</h1>
+  <motion.div initial={{ y: '-100vw' }} animate={{ y: 0 }} style={{
+    backgroundColor: "blue",
+    padding: 30
+  }}>
+    <h1>Registration</h1>
     <Progress />
   </motion.div>
 );

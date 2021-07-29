@@ -20,8 +20,8 @@ const AppRouter = () => {
 
   return (
     <BrowserRouter>
-      <div className="container">
         <Header />
+        <div className="container">
         <Switch>
           <Route
             render={props => (

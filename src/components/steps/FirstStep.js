@@ -22,7 +22,10 @@ const FirstStep = props => {
       <motion.div
          initial={{ x: '-100vw' }}
          animate={{ x: 0 }}
-        className="col-md-6 offset-md-3"
+        className="col-md-6 offset-md-3 bg-primary"
+        style={{
+          padding:30
+        }}
       >
         <Form.Group controlId="first_name">
           <Form.Label>First Name</Form.Label>
@@ -64,7 +67,7 @@ const FirstStep = props => {
             <p className="errorMsg">{errors.last_name.message}</p>
           )}
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="info" type="submit">
           Next
         </Button>
       </motion.div>

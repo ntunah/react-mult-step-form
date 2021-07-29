@@ -86,9 +86,12 @@ const ThirdStep = props => {
   return (
     <Form className="input-form" onSubmit={handleSubmit}>
       <motion.div
-      initial={{ x: '-100vw' }}
-      animate={{ x: 0 }}
-        className="col-md-6 offset-md-3"
+        initial={{ x: '-100vw' }}
+        animate={{ x: 0 }}
+        className="col-md-6 offset-md-3 bg-primary"
+        style={{
+          padding: 30
+        }}
       >
         <Form.Group controlId="country">
           {isLoading && (
@@ -102,7 +105,13 @@ const ThirdStep = props => {
             onChange={event => setSelectedCountry(event.target.value)}
           >
             {countries.map(({ isoCode, name }) => (
-              <option value={isoCode} key={isoCode}>
+              <option
+                value={isoCode}
+                key={isoCode}
+                style={{
+                  color: '#e67e22'
+                }}
+              >
                 {name}
               </option>
             ))}
@@ -118,7 +127,13 @@ const ThirdStep = props => {
           >
             {states.length > 0 ? (
               states.map(({ name }) => (
-                <option value={name} key={name}>
+                <option
+                  value={name}
+                  key={name}
+                  style={{
+                    color: '#e67e22'
+                  }}
+                >
                   {name}
                 </option>
               ))
@@ -137,10 +152,17 @@ const ThirdStep = props => {
             name="city"
             value={selectedCity}
             onChange={event => setSelectedCity(event.target.value)}
+           
           >
             {cities.length > 0 ? (
               cities.map(({ isoCode, name }) => (
-                <option value={isoCode} key={isoCode}>
+                <option
+                  value={isoCode}
+                  key={isoCode}
+                  style={{
+                    color: '#e67e22'
+                  }}
+                >
                   {name}
                 </option>
               ))
@@ -151,7 +173,7 @@ const ThirdStep = props => {
             )}
           </Form.Control>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="info" type="submit">
           Register
         </Button>
       </motion.div>
