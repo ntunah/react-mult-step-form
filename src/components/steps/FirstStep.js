@@ -1,24 +1,25 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
-const FirstStep = (props) => {
-  const {userData} = props
+const FirstStep = props => {
+  const { userData } = props;
   const { register, handleSubmit, errors } = useForm({
-    defaultValues:{
+    defaultValues: {
       first_name: userData.first_name,
       last_name: userData.last_name
     }
   });
 
   const onSubmit = data => {
-    props.updateUserData(data)
-    props.history.push("/second")
+    props.updateUserData(data);
+    props.history.push('/second');
   };
 
   return (
     <Form className="input-form" onSubmit={handleSubmit(onSubmit)}>
-      <div className="col-md-6 offset-md-3">
+      <motion.div className="col-md-6 offset-md-3">
         <Form.Group controlId="first_name">
           <Form.Label>First Name</Form.Label>
           <Form.Control
@@ -62,7 +63,7 @@ const FirstStep = (props) => {
         <Button variant="primary" type="submit">
           Next
         </Button>
-      </div>
+      </motion.div>
     </Form>
   );
 };

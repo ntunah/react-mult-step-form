@@ -7,7 +7,7 @@ const SecondStep = (props) => {
   const { register, handleSubmit, errors } = useForm({
     defaultValues:{
       user_email: userData.user_email,
-      user_password: userData.user_p
+      user_password: userData.user_password
     }
   });
 
