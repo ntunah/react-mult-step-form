@@ -19,7 +19,11 @@ const FirstStep = props => {
 
   return (
     <Form className="input-form" onSubmit={handleSubmit(onSubmit)}>
-      <motion.div className="col-md-6 offset-md-3">
+      <motion.div
+         initial={{ x: '-100vw' }}
+         animate={{ x: 0 }}
+        className="col-md-6 offset-md-3"
+      >
         <Form.Group controlId="first_name">
           <Form.Label>First Name</Form.Label>
           <Form.Control

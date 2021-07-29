@@ -1,11 +1,12 @@
 import React from 'react';
-import Progress from "./Progress"
+import Progress from './Progress';
+import { motion } from 'framer-motion';
 
 const Header = () => (
-  <div>
+  <motion.div initial={{ y: '-100vw' }} animate={{ y: 0 }}>
     <h1>Multi Step Registration</h1>
     <Progress />
-  </div>
+  </motion.div>
 );
 
 export default Header;
