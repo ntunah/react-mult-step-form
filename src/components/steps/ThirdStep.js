@@ -12,6 +12,7 @@ const ThirdStep = props => {
   const [selectedCountry, setSelectedCountry] = useState('');
   const [selectedState, setSelelectedState] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
+  let count = 0;
 
   useEffect(() => {
     const getCountries = async () => {
@@ -117,7 +118,7 @@ const ThirdStep = props => {
                 </option>
               ))
             ) : (
-              <option key="" value="">
+              <option key={count+ 1} value="">
                 No state Found
               </option>
             )}
@@ -139,7 +140,7 @@ const ThirdStep = props => {
                 </option>
               ))
             ) : (
-              <option key="" value="">
+              <option key={count+ 1} value="">
                 No city Found
               </option>
             )}
