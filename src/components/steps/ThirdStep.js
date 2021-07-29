@@ -5,6 +5,8 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 
 const ThirdStep = props => {
+  const { userData } = props;
+  const [fullData, setFullData] = useState([]);
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
@@ -70,17 +72,26 @@ const ThirdStep = props => {
         allCities = result?.map(({ name }) => ({
           name
         }));
-
-        const [{ name: firstCity = '' }] = allCities;
+        const [{ name: firstCity = '' } = {}] = allCities;
         setCities(allCities);
         setSelectedCity(firstCity);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
     getAllCities();
   }, [selectedState]);
 
   const handleSubmit = async event => {
     event.preventDefault();
+    const submitData = {
+      ...userData,
+      country: countries.find(country => country.isoCode === selectedCountry)
+        ?.name,
+      state: states.find(state => state.isoCode === selectedState)?.name || '',
+      city: selectedCity
+    };
+    console.log(submitData);
   };
 
   return (
@@ -126,10 +137,10 @@ const ThirdStep = props => {
             onChange={event => setSelelectedState(event.target.value)}
           >
             {states.length > 0 ? (
-              states.map(({ name }) => (
+              states.map(({ isoCode, name }) => (
                 <option
-                  value={name}
-                  key={name}
+                  value={isoCode}
+                  key={isoCode}
                   style={{
                     color: '#e67e22'
                   }}
@@ -152,7 +163,6 @@ const ThirdStep = props => {
             name="city"
             value={selectedCity}
             onChange={event => setSelectedCity(event.target.value)}
-           
           >
             {cities.length > 0 ? (
               cities.map(({ isoCode, name }) => (
